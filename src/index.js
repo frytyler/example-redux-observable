@@ -6,6 +6,13 @@ import { createStore, applyMiddleware } from "redux";
 import { reducers } from "./reducers";
 import { epics } from "./epics";
 import App from "./app";
+import { injectGlobal } from "styled-components";
+
+injectGlobal`
+  body {
+    background: #f5f5f5;
+  }
+`;
 
 const epicMiddleware = createEpicMiddleware(epics);
 const store = createStore(reducers, applyMiddleware(epicMiddleware));
